@@ -1,5 +1,3 @@
-var glob = require('glob');
-
 module.exports = {
     compressScripts: {
         src: './js/main.js',
@@ -9,13 +7,11 @@ module.exports = {
         // Эта опция нужна для дебага, с указанием где произошла ошибка
         debug: true,
         //Записываю в main.js все модули в стиле common JS
-        bundleConfigs: [
-            {
-                entries:    glob.sync('./js/modules/*.js'),
-                dest:       './js',
-                outputName: 'main.js'
-            }
-        ]
+        bundleConfigs: {
+            entries:    './js/modules/*.js',
+            dest:       './js',
+            outputName: 'main.js'
+        }
     },
     autoprefixer: {
         browsers: [
